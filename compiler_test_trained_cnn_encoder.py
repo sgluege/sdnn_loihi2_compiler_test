@@ -14,13 +14,16 @@ import h5py
 
 project_path = './'
 model_path = project_path + 'data/'
+# model_name = 'model.net'
+# model_name = 'model_1hot.net'
+model_name = 'model_heatmaps.net'
 
 if __name__ == "__main__":
     CompilerOptions.verbose = True
     CompilerOptions.log_memory_info = True
     CompilerOptions.show_resource_count = True
 
-    net = netx.hdf5.Network(net_config=model_path + 'model.net', skip_layers=1)
+    net = netx.hdf5.Network(net_config=model_path + model_name, skip_layers=1)
     print(net)
     print(f'There are {len(net)} layers in the network:')
     for l in net.layers:
